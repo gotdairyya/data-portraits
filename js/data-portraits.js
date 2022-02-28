@@ -25,10 +25,10 @@ d3.csv("data/answers.csv").then(data => {
         const width = 200;
         const activities =
             [{
-                "✽": ["Hiking", "Winter Sports", "Running", "Climbing", "Team Sports"],
-                "📷": ["Painting", "Photography", "Pottery"],
+                "⚐": ["Hiking", "Winter Sports", "Running", "Climbing", "Team Sports"],
+                "❃": ["Painting", "Photography", "Pottery"],
                 "♫": ["Orchestra", "Choir", "Songwriting"],
-                "✨": ["Cooking / Baking", "Reading", "Sleeping", "Yoga"],
+                "★": ["Cooking / Baking", "Reading", "Sleeping", "Yoga"],
                 "♡": ["Religious practice", "Volunteer work", "Politics"],
             }]
 
@@ -42,7 +42,7 @@ d3.csv("data/answers.csv").then(data => {
         };
 
         // Draw the portrait
-        const svg = d3.select("div#container").append("svg").attr("width", width).attr("height", 192);
+        const svg = d3.select("div#container").append("svg").attr("width", width).attr("height", width);
 
         svg
             .append("clipPath") // define a clip path
@@ -71,7 +71,6 @@ d3.csv("data/answers.csv").then(data => {
             .attr("id", "q1")
             .attr("fill", (d) => catColor(d))
             .attr("transform", `translate(${width / 2},${portraitDim / 2})`);
-        // .attr("opacity", 0.5);
 
         // Draw q2
         const q2 = g.selectAll("path#q2").data(question2);
@@ -132,6 +131,6 @@ d3.csv("data/answers.csv").then(data => {
         g.attr("clip-path", "url(#circle-clip)");
 
         // Size the data
-        // g.attr("transform", `scale(2) translate(${-width/4})`)
+        g.attr("transform", `scale(2) translate(${-width/4},${-width/4})`)
     })
 });
