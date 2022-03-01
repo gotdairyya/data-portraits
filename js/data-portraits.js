@@ -22,7 +22,7 @@ d3.csv("data/answers.csv").then(data => {
         ];
         const catColor = d3.scaleOrdinal(threeAnswers, ["rgb(0, 191, 128)", "rgb(193, 141, 186)", "rgb(244, 225, 83)"]);
         const q5Colors = d3.scaleOrdinal(q5Options, d3.schemeCategory10);
-        const width = 200;
+        const width = 250;
         const activities =
             [{
                 "⚐": ["Hiking", "Winter Sports", "Running", "Climbing", "Team Sports"],
@@ -131,6 +131,14 @@ d3.csv("data/answers.csv").then(data => {
         g.attr("clip-path", "url(#circle-clip)");
 
         // Size the data
-        g.attr("transform", `scale(2) translate(${-width/4},${-width/4})`)
+        g.attr("transform", `scale(2) translate(${-width / 4},${-width / 6})`)
+
+        svg.append("foreignObject")
+            .text(name)
+            .attr("fill", "black")
+            .attr("height", width)
+            .attr("width", width)
+            .attr("x", width / 4)
+            .attr("y", width - 20)
     })
 });
